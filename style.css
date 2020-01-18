@@ -1,0 +1,162 @@
+/*
+Theme Name: Nate
+Description: Custom theme for NateWessel.com
+Author: Nate Wessel
+Author URI: https://www.natewessel.com
+Version: 0
+*/
+/* This layout is designed for small screens first with media queries used to 
+ * scale the design up to larger screens. Those media queries start making  
+ * changes around 400px wide
+*/
+
+@font-face {
+	font-family: 'Charter';
+	src: url('fonts/Charter-regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal; }
+@font-face {
+	font-family: 'Charter';
+	src: url('fonts/Charter-bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal; }
+@font-face {
+	font-family: 'Charter';
+	src: url('fonts/Charter-italic.woff') format('woff');
+	font-weight: normal;
+	font-style: italic; }
+@font-face {
+	font-family: 'Charter';
+	src: url('fonts/Charter-bold-italic.woff') format('woff');
+	font-weight: bold;
+	font-style: italic; }
+
+/* Color definitions in one place for consistency */
+:root {
+	--bg: #f9f9f9;
+	--link-blue: #4b78c8;
+	--light-grey: #999;
+	--emph-grey: #f3f3f3;
+	--text: #333;
+	--menu-link: #FF2000; /*red*/
+}
+
+/* BASICS */
+html, body {
+	width:100%;
+	min-height: 100%; }
+body {
+	width:96%;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	font-family: Charter, serif;
+	font-size: 3.125vw;
+	background: var(--bg); 
+	color: var(--text);
+	margin: 0 2% 0 2%;
+	line-height: 1.3; }
+
+#page, #attachment {
+	flex: 1; }
+
+a {
+	color: var(--link-blue);
+	text-decoration: none; }
+a:hover {
+	text-decoration: underline; }
+h1,h2,h3,h4,h5,h6 { }
+h1 { font-size: 1.2em; }
+
+img { 
+	max-width: 100% !important;
+	height: auto !important; }
+
+nav {
+	display: flex;
+	justify-content: space-between; /*title  -----  menu items*/
+	font-size:1.2em;
+	font-weight: normal;
+	line-height: 1.4; }
+nav a {
+	color: var(--menu-link); }
+nav ul { 
+	padding-left: 0;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	list-style: none;
+	margin-bottom: 0; }
+
+/*link to current or ancestor page are a different color*/
+nav li.current_page_item a, 
+nav li.current-page-ancestor a {
+	color: var(--text); }
+
+
+nav ul li {	
+	margin-right: 0.5em;
+	margin-left: 0.5em; }
+
+
+#attachment img {
+	display: block; 
+	margin: auto; }
+
+ul#subpages {
+	display: flex; 
+	flex-wrap: wrap; 
+	padding-left: 0;
+	list-style: none; }
+
+li.subpage {
+	display: block; 
+	margin: 2%;
+	padding: 1%;
+	min-width: 43%;
+	border-radius: 10px; }
+li.subpage img {
+	width: 100%; }
+li.subpage h2 {
+	text-align: center; 
+	margin: 0;
+	display: block;
+	font-weight: normal; 
+	font-size: 1.1em; }
+li.subpage .excerpt {
+	display: block;
+	text-align: left; 
+	font-size: .7em;
+	color: var(--light-grey); }
+li.subpage p {
+	margin: 0; }
+
+.blog .subpage .editdate {
+	text-align: right; }
+
+footer {
+	flex-shrink: 0; 
+	border-top: 1px solid var(--light-grey); 
+	color: var(--light-grey); 
+	font-size: 0.8em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+/* establish a minimum font size*/
+@media (max-width: 500px) {
+	body {
+		font-size: 15px; }
+}
+
+/* with the widest screens, the page is limited to a width of 800px */
+@media (min-width: 800px){
+	body {
+		margin: 0 auto;
+		max-width: 700px;
+		font-size: 25px; }
+	nav #site-title::after {
+		content: ' |'; }
+}
+
+
