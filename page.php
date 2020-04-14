@@ -6,7 +6,11 @@ if(have_posts()){
 	the_post();
 ?>
 <div id="page">
-<h1 class="page-title"><?php the_title(); ?></h1>
+
+<?php if(count(get_post_ancestors($post->ID))>0){ 
+// don't display titles for top-level pages, which should be in the menu ?>
+	<h1 class="page-title"><?php the_title(); ?></h1>
+<?php } ?>
 
 <?php 
 	the_content(); 
