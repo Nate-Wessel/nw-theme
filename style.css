@@ -46,8 +46,6 @@ html, body {
 	width:100%;
 	min-height: 100%; }
 body {
-	text-align: justify; 
-	hyphens: auto; 
 	width:96%;
 	display: flex;
 	min-height: 100vh;
@@ -62,6 +60,9 @@ body {
 #page, #attachment {
 	flex: 1; }
 
+p {
+	text-align: justify; 
+	hyphens: auto; }
 a {
 	color: var(--link-blue);
 	text-decoration: none; }
