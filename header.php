@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html lang='en'>
 	<head>
 		<meta http-equiv="Content-type" content="<?php bloginfo('html_type'); ?>">
 		<title><?php bloginfo('name'); ?></title>
