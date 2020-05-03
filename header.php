@@ -11,21 +11,12 @@
 	</head>
 <body>
 
-<nav>
-<p id='site-title'><?php bloginfo('name');?></p>
-<?php 
-# print the menu
-$nav_args = array(
-	'container' => '',
-	'class'     => ''
-);
-wp_nav_menu($nav_args); 
-// insert an extra nav link on pages that have a parent
-if($post->post_parent) { 
-	$parent_link = get_permalink($post->post_parent); ?>
-<a href="<?php echo $parent_link; ?>" title="up a page" id='parent-link'></a>
-<?php } ?>
-</nav>
+<header>
+	<a href="<?php echo get_site_url();?>">
+		<span id="site-name"><?php bloginfo('name');?></span>
+	</a>
+	<address><a href="mailto:nate@natewessel.com">nate@natewessel.com</a></address>
+</header>
 
 
 

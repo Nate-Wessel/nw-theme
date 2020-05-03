@@ -72,32 +72,19 @@ img {
 	max-width: 100% !important;
 	height: auto !important; }
 
-nav {
+header {
+	margin-top: 1em;
+	padding-bottom: 0.25em;
+	width: 100%;
+	border-bottom: 1px solid var(--light-grey);
 	display: flex;
-	justify-content: space-between; /*title  -----  menu items*/
-	font-size:1.2em;
-	font-weight: normal;
-	line-height: 1.4; }
-nav a {
-	color: var(--menu-link); }
-nav ul { 
-	padding-left: 0;
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: center;
-	list-style: none;
-	margin-bottom: 0; }
-
-/*link to current or ancestor page are a different color*/
-nav li.current_page_item a, 
-nav li.current-page-ancestor a {
-	color: var(--text); }
-
-
-nav ul li {	
-	margin-right: 0.5em;
-	margin-left: 0.5em; }
-
+	justify-content: space-between;
+	align-items: flex-end; }
+header #site-name {
+	color: var(--text);
+	font-size: 1.2em; }
+header address {
+	font-size: 0.7em; }
 
 #attachment img {
 	display: block; 
