@@ -67,8 +67,10 @@ a {
 	text-decoration: none; }
 a:hover {
 	text-decoration: underline; }
-h1,h2,h3,h4,h5,h6 { }
-h1 { font-size: 1.2em; }
+h1,h2,h3,h4,h5,h6 { 
+	font-style: italic; 
+	font-weight: normal; 
+	text-align: right; }
 
 img { 
 	max-width: 100% !important;
