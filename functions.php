@@ -32,7 +32,7 @@ function adding_custom_meta_boxes( $post_type, $post ) {
 }
 add_action( 'add_meta_boxes', 'adding_custom_meta_boxes', 10, 2 );
 
-function nw_related_posts_meta(){
+function nw_related_posts_meta($object){
 	# posts/pages to select from metabox 
 	$posts = get_posts(array( 
 		'post_type' => ['page','cv_project'], 
@@ -52,6 +52,17 @@ function nw_related_posts_meta(){
 		</select>
 	</div>
 <?php
+}
+
+add_action("save_post", "nw_save_page_meta");
+function nw_save_page_meta($post_id){
+	if( get_post_type($post_id) != 'page' ){ return; }
+	# store or delete values. Since this is definitely a project at this point,
+	# null or empty values mean there is definitely no value to store
+	delete_post_meta($post_id,'link_to');
+	foreach($_POST['link_to'] as $link_to_post_id){
+		add_post_meta($post_id,'link_to',$link_to_post_id);
+	}
 }
 
 ?>
