@@ -12,18 +12,14 @@ if(have_posts()){
 <?php 
 	the_content(); 
 
-	# list child pages if any
-	$args = array(
-		'post_parent'=>$post->ID,
-		'orderby'=>'menu_order',
-		'order'=>'ASC',
-		'post_status'=>'publish'
-	);
-	$kids = get_children($args);
+	# link to any related pages/projects
+	$kids = get_post_meta($post->ID, "link_to", false);
 	
 	if($kids){ ?>
 	<ul id="subpages">
-		<?php foreach($kids as $child){ ?>
+		<?php foreach($kids as $child_id){ 
+		$child = get_post($child_id);
+		?>
 		
 	<li class='subpage'>
 		<a href="<?php echo get_permalink($child->ID); ?>">
