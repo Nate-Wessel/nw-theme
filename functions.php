@@ -38,7 +38,8 @@ function nw_related_posts_meta($object){
 		'post_type' => ['page','cv_project'], 
 		'numberposts' => -1 ,# return all
 		'orderby' => 'title',
-		'order' => 'ASC'
+		'order' => 'ASC',
+		'exclude'=>$object->ID, # exlude self
 	));
 	$selected_posts = get_post_meta($object->ID, "link_to", false);
 	?>
