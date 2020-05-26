@@ -13,32 +13,32 @@ if(have_posts()){
 	the_content(); 
 
 	# link to any related pages/projects
-	$kids = get_post_meta($post->ID, "link_to", false);
-	
-	if($kids){ ?>
+	$link_IDs = get_post_meta($post->ID, "link_to", false);
+	shuffle($link_IDs);
+	if($link_IDs){ ?>
 	<ul id="subpages">
-		<?php foreach($kids as $child_id){ 
-		$child = get_post($child_id);
+		<?php foreach($link_IDs as $link_id){ 
+		$p = get_post($link_id);
 		?>
-		
+
 	<li class='subpage'>
-		<a href="<?php echo get_permalink($child->ID); ?>">
+		<a href="<?php echo get_permalink($p->ID); ?>">
 			<?php
-			if(has_post_thumbnail($child->ID)){
-				echo get_the_post_thumbnail($child->ID,'thumbnail');
+			if(has_post_thumbnail($p->ID)){
+				echo get_the_post_thumbnail($p->ID,'thumbnail');
 			}
 			?>
-			<h2><?php echo $child->post_title;?></h2>
+			<h2><?php echo $p->post_title;?></h2>
 		</a>
-		
+
 		<span class="excerpt">
-		<?php if(has_excerpt($child->ID)){ echo get_the_excerpt($child->ID); }?>
+		<?php if(has_excerpt($p->ID)){ echo get_the_excerpt($p->ID); }?>
 		</span>
 	</li> <!--.subpage-->
 <?php
-		} # foreach subpage
+		} # foreach link
 ?>	</ul> <!--#subpages--> <?php	
-	} # if subpages
+	} # if link_IDs
 } // end loop 
 ?>
 
