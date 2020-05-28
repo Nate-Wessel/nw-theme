@@ -57,12 +57,14 @@ function nw_related_posts_meta($object){
 
 add_action("save_post", "nw_save_page_meta");
 function nw_save_page_meta($post_id){
-	if( get_post_type($post_id) != 'page' ){ return; }
-	# store or delete values. Since this is definitely a project at this point,
-	# null or empty values mean there is definitely no value to store
-	delete_post_meta($post_id,'link_to');
-	foreach($_POST['link_to'] as $link_to_post_id){
-		add_post_meta($post_id,'link_to',$link_to_post_id);
+	if( get_post_type($post_id) == 'page' && isset($_POST) ){
+		// this preemptive delete ensures no stale page IDs remain in the DB
+		delete_post_meta($post_id,'link_to');
+		if( is_array($_POST['link_to']) ){
+			foreach($_POST['link_to'] as $link_to_post_id){
+				add_post_meta($post_id,'link_to',$link_to_post_id);
+			}
+		}
 	}
 }
 
