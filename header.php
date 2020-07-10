@@ -6,7 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url')?>" >
 		<meta name="description" content="Cartography and data visualisation">
 		<meta name="author" content="Nate Wessel">
-		<meta id="meta" name="viewport" content="width=device-width; initial-scale=1.0" />
+		<meta id="meta" name="viewport" content="width=device-width, initial-scale=1.0" />
 		<?php wp_head(); ?>
 	</head>
 <body>
